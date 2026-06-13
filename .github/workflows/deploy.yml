@@ -41,7 +41,7 @@ jobs:
                 key: ${{ secrets.EC2_SSH_PRIVATE_KEY }} 
                 script: |
                   echo "Running the application"
-                  export DOCKERHUB_USER=${{ vars.DOCKERHUB_USER }}
+                  export DOCKERHUB_USERNAME=${{ vars.DOCKERHUB_USERNAME }}
                   export DOCKERHUB_TAG=${{ github.sha}}
-                  echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ vars.DOCKERHUB_USER }} --password-stdin
+                  echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ vars.DOCKERHUB_USERNAME }} --password-stdin
                   cd  ~/devops && docker compose down && docker compose up -d --build --force-recreate
