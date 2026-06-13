@@ -1,0 +1,29 @@
+name: CI Notes App
+on:
+  push:
+    branches:
+        - main
+        
+
+jobs:
+   code-quality:
+       uses: ./.github/workflows/code-quality.yml
+
+   dependency-check:
+       uses: ./.github/workflows/dependency-check.yml
+
+   secrets-scan:
+       uses: ./.github/workflows/secrets-scan.yml
+
+   docker-lint:
+        uses: ./.github/workflows/docker-lint.yml
+
+   build-push:
+        needs: 
+            - code-quality
+            - dependency-check
+            - secrets-scan
+            - docker-lint
+        uses: ./.github/workflows/build-push.yml
+
+    
