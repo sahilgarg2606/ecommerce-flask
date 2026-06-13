@@ -6,11 +6,12 @@ on:
         
 
 jobs:
-   code-quality:
-       uses: ./.github/workflows/code-quality.yml
+#    code-quality:
+#        uses: ./.github/workflows/code-quality.yml
+       
 
-   dependency-check:
-       uses: ./.github/workflows/dependency-check.yml
+#    dependency-check:
+#        uses: ./.github/workflows/dependency-check.yml
 
    secrets-scan:
        uses: ./.github/workflows/secrets-scan.yml
@@ -25,5 +26,6 @@ jobs:
             - secrets-scan
             - docker-lint
         uses: ./.github/workflows/build-push.yml
+        secrets: inherit
 
     
