@@ -27,5 +27,10 @@ jobs:
             - docker-lint
         uses: ./.github/workflows/build-push.yml
         secrets: inherit
-
+   deploy:
+        needs: [build-push]
+        uses: ./.github/workflows/deploy.yml
+        secrets: inherit
+    
+  
     
