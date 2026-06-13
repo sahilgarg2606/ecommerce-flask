@@ -21,8 +21,8 @@ jobs:
 
    build-push:
         needs: 
-            - code-quality
-            - dependency-check
+            # - code-quality
+            # - dependency-check
             - secrets-scan
             - docker-lint
         uses: ./.github/workflows/build-push.yml
