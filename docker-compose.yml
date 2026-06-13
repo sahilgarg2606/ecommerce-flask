@@ -1,0 +1,6 @@
+services:
+   web:
+    container_name: ecommerce
+    image: ${DOCKERHUB_USERNAME}/ecommerce:${DOCKERHUB_TAG}
+    ports:
+      - "5000:5000"
